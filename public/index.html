@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SHADOW_HUB — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Video BG */
+    .login-video {
+      position: fixed;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      z-index: 0;
+    }
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.65));
+      z-index: 1;
+    }
+
+    /* Center wrapper */
+    .login-center {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Card */
+    .login-card {
+      width: 360px;
+      max-width: calc(100vw - 40px);
+      padding: 40px 32px 36px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      text-align: center;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.06) inset;
+    }
+
+    /* Title */
+    .login-title {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(239,68,68,0.5);
+      margin-bottom: 8px;
+    }
+
+    .login-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    /* Input */
+    .login-input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      margin-bottom: 14px;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .login-input::placeholder { color: rgba(255,255,255,0.22); }
+    .login-input:focus {
+      border-color: rgba(239,68,68,0.55);
+      background: rgba(239,68,68,0.06);
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.12);
+    }
+
+    /* Button */
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #b91c1c, #ef4444, #dc2626);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(220,38,38,0.4);
+      margin-bottom: 14px;
+    }
+    .login-btn:hover {
+      opacity: 0.92;
+      box-shadow: 0 6px 32px rgba(220,38,38,0.58);
+    }
+    .login-btn:active { transform: scale(0.97); }
+
+    /* Message */
+    .login-msg {
+      font-size: 13px;
+      min-height: 20px;
+      color: #fecaca;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop playsinline class="login-video">
+    <source src="https://cdn.discordapp.com/attachments/1497979406801572030/1513995400535736421/8e06560d-82db-45f6-961a-3c686ea10f53.mp4?ex=6a2a6a58&is=6a2918d8&hm=8d219b3c3fe309d28ae6c8df7ebb1fad85382f48895873300768af3649c19971&" type="video/mp4"/>
+  </video>
+  <div class="login-overlay"></div>
+
+  <div class="login-center">
+    <div class="login-card">
+      <h1 class="login-title">LEZAR_EXE</h1>
+      <p class="login-sub">Enter your one-time license to continue</p>
+      <input id="passInput" type="text" class="login-input" placeholder="Enter license code..." autocomplete="off"/>
+      <button id="loginBtn" class="login-btn">LOGIN</button>
+      <div id="loginMsg" class="login-msg" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>shadow_hub — Bypass Panel</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+</head>
+<body>
+
+  <!-- Video Background -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline id="bgVideo">
+      <source src="https://cdn.discordapp.com/attachments/1497979406801572030/1513995400535736421/8e06560d-82db-45f6-961a-3c686ea10f53.mp4?ex=6a2a6a58&is=6a2918d8&hm=8d219b3c3fe309d28ae6c8df7ebb1fad85382f48895873300768af3649c19971&" type="video/mp4"/>
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Particle Canvas -->
+  <canvas id="dots"></canvas>
+
+  <div class="container">
+    <h1 class="page-title">LEZAR_EXE LICENCE</h1>
+
+    <!-- Top Badge -->
+    <div class="top-badge">
+      <i class="ti ti-shield-bolt"></i>
+      SHADOW_HUB &nbsp;·&nbsp; FREE BYPASS
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-area">
+      <div class="logo-ring">
+        <div class="logo-inner">
+          <img class="logo-img" src="https://cdn.discordapp.com/attachments/1504175177976643794/1514195036357660802/ChatGPT_Image_Jun_4_2026_03_12_27_AM.png?ex=6a2a7b85&is=6a292a05&hm=ce67bb113cbf07b163e663c2044260ec37c1351a1b7a144d074def26574b1c0a&" alt="DEV PIYAS"/>
+        </div>
+      </div>
+      <div class="logo-text">
+        <h1> SHADOW_HUB </h1>
+        <p>1-Day Bypass Whitelist System</p>
+      </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="card">
+
+      <div class="card-header">
+        <div class="card-title">
+          <i class="ti ti-key"></i>
+          Activate Free Access
+        </div>
+        <div class="card-badge">FREE</div>
+      </div>
+
+      <p class="desc">Enter your UID below to get <strong>1 day free bypass access</strong>. Your ID will be whitelisted instantly on our server.</p>
+
+      <div class="input-group">
+        <label><i class="ti ti-fingerprint"></i> Your UID</label>
+        <div class="input-wrap">
+          <input id="uidInput" type="text" placeholder="Paste your UID here..." maxlength="64" autocomplete="off"/>
+          <button class="paste-btn" onclick="pasteUID()" title="Paste">
+            <i class="ti ti-clipboard"></i>
+          </button>
+        </div>
+      </div>
+
+      <button id="addBtn" onclick="addUID()">
+        <i class="ti ti-bolt"></i>
+        <span id="btnText">Activate Bypass</span>
+      </button>
+
+      <div id="resultBox" class="result hidden">
+        <i id="resultIcon" class="ti"></i>
+        <div>
+          <div id="resultMsg"></div>
+          <div id="resultSub" class="result-sub"></div>
+        </div>
+      </div>
+
+      <!-- Info Row -->
+      <div class="info-row">
+        <div class="info-item">
+          <i class="ti ti-clock"></i>
+          <span>1 Day Access</span>
+        </div>
+        <div class="info-item">
+          <i class="ti ti-bolt"></i>
+          <span>Instant Activate</span>
+        </div>
+        <div class="info-item">
+          <i class="ti ti-shield-check"></i>
+          <span>Free Forever</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num" id="totalCount">0</div>
+        <div class="stat-lbl"><i class="ti ti-user"></i> Whitelisted</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num green" id="successCount">0</div>
+        <div class="stat-lbl"><i class="ti ti-circle-check"></i> Active</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num red" id="failCount">0</div>
+        <div class="stat-lbl"><i class="ti ti-alert-circle"></i> Deactive</div>
+      </div>
+    </div>
+
+
+    <!-- History -->
+    <div class="card" id="historyCard">
+      <div class="history-header">
+        <span><i class="ti ti-history"></i> Recent Activations</span>
+        <button class="clear-btn" onclick="clearHistory()">Clear</button>
+      </div>
+      <div id="historyList"></div>
+    </div>
+
+    <footer>
+      <i class="ti ti-ghost-2"></i> <span class="dev-text">DEV_SAYEEM_EXE</span> &nbsp;·&nbsp; Powered by LEZAR_EXE &copy; 2026
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
